@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+.containerFooterAll {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 40px;
+    background-color: #a5c3ec;
+}
+
+.containerBody {
+    display: flex;
+    justify-content: space-between;
+}
+
+.colum1 {
+    max-width: 600px;
+}
+
+.colum1 h2 {
+    font-size: 22px;
+}
+
+.colum1 p {
+    font-size: 14px;
+    color: #000;
+    margin-top: 20px;
+}
+
+.colum2 {
+    max-width: 600px;
+}
+
+.colum2 h2 {
+    font-size: 22px;
+}
+
+.colum2 .row {
+    margin-top: 20px;
+    display: flex;
+}
+
+.row img {
+    width: 36px;
+    height: 36px;
+}
+
+.row label {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #000;
+}
+
+.containerFooter {
+    width: 100%;
+    background-color: #b4aee3;
+}
+
+.footer {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    color: #0000;
+}
+
+.copi {
+    color: #000;
+}
+
+@media screen and (max-width: 1100px) {
+    .containerBody {
+        flex-wrap: wrap;
+    }
+
+    .colum1 {
+        width: 350px;
+    }
+
+    .colum2 {
+        padding-top: 40px;
+    }
+
+
+}
+
