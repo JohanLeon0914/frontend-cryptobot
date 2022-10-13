@@ -29,7 +29,7 @@ function Login() {
 
   return (
     <div className={styles.cover}>
-      <h1>Login</h1>
+      <h1 className={styles.title}>Login</h1>
       <form onSubmit={handleSubmit}>
         <input  className={styles.input} 
               name='email'

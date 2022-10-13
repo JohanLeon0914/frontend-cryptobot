@@ -9,6 +9,29 @@
     font-size: 0.75em;
 }
 
+.fileContainer {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+}
+
+.fileInput {
+    display: none;
+}
+
+.labelFile {
+    display: none;
+    padding: 8px 2px;
+    border: 1px slid #ccc;
+    border-radius: 6px;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.label {
+    margin-right: 20px;
+}
+
 .title {
     text-align: center;
     justify-content: center;

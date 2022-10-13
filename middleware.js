@@ -24,6 +24,6 @@ export const config = { // en config voy a colocar todas las rutas que quiero pr
     matcher: [ // es un arreglo de strings que contiene las rutas protegidas
         '/dashboard',
         '/profile',
-        '/admin/:path*' //con /:path* protego a todas las rutas de admin, por ejemplo admin/profile, admin/createQA
+        // '/admin/:path*' //con /:path* protego a todas las rutas de admin, por ejemplo admin/profile, admin/createQA
     ]
 }
