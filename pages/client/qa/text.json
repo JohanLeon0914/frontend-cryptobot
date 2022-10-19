@@ -1,0 +1,17 @@
+{  
+ "name": "qa",
+ "qa": [
+    {
+      "question": "Molecule Man",
+      "answer": 29
+    },
+    {
+      "question": "Madame Uppercut",
+      "answer": 39
+    },
+    {
+      "question": "Eternal Flame",
+      "answer": 1000000
+    }
+  ]
+}
