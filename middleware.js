@@ -6,17 +6,17 @@ export async function middleware(request) { //antes de pintar los componentes se
     const jwt = request.cookies.get('myTokenName')
    
         if(!jwt){ // tambien puede usar jwt === undefiened
-            return NextResponse.redirect(new URL('/login', request.url))//si no existe el jwt lo redirijo al login
+            return NextResponse.redirect(new URL('/', request.url))//si no existe el jwt lo redirijo al login
         }
 
         try { // si el token existe, tengo que comprobar que sea valido
             const { payload } = await jwtVerify(
                 jwt,
-                new TextEncoder().encode("secret")) //codifico en secre del token para verificar si el jwt es valido
+                new TextEncoder().encode("secret")) //codifico el secre del token para verificar si el jwt es valido
                 return NextResponse.next() // si el token es valido dejo que continue a la pagina que estaba visitando
         } catch (error) {
             console.log(error)
-            return NextResponse.redirect(new URL('/login', request.url))//si entra en este error, el token es invalido, y lo redirigo al login
+            return NextResponse.redirect(new URL('/', request.url))//si entra en este error, el token es invalido, y lo redirigo al login
         }
 }
 
