@@ -21,10 +21,10 @@ function CreateQA() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // const response = await axios.post('/api/auth/login', credentials)
-    // if(response.status === 200) {
-    //   router.push('/dashboard')
-    // }
+    const response = await axios.post('http://localhost:9000/qa/create', credentials)
+    if(response.status === 200) {
+      router.push('/admin/qa')
+    }
     console.log(credentials)
   }
   return (

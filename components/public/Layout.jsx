@@ -1,6 +1,6 @@
 
 import Footer from "./footer/Footer";
-import Header from './header/Header'
+import Header from '../public/header/Header2'
 
 export function Layout({children}) {
     return (

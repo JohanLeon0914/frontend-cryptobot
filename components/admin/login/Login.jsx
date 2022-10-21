@@ -4,7 +4,8 @@ import { useState } from "react"
 import styles from './Login.module.css'
 
 function Login() {
-  
+
+
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -15,15 +16,15 @@ function Login() {
   const handleChange = (e) => {
     setCredentials({
       ...credentials, // hago una copia de lo que tenga credentials hasta el momento
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const response = await axios.post('/api/auth/login', credentials)
-    if(response.status === 200) {
-      router.push('/dashboard')
+    if (response.status === 200) {
+      router.push('/')
     }
   }
 
@@ -31,20 +32,20 @@ function Login() {
     <div className={styles.cover}>
       <h1 className={styles.title}>Login</h1>
       <form onSubmit={handleSubmit}>
-        <input  className={styles.input} 
-              name='email'
-               type='email'
-               placeholder='email' 
-               onChange={handleChange}
-                />
-        <input className={styles.input} 
-                name='password'
-                type='password' 
-                placeholder='password' 
-                onChange={handleChange}  
-                />
+        <input className={styles.input}
+          name='email'
+          type='email'
+          placeholder='email'
+          onChange={handleChange}
+        />
+        <input className={styles.input}
+          name='password'
+          type='password'
+          placeholder='password'
+          onChange={handleChange}
+        />
         <button className={styles.loginBtn}>
-            Login
+          Login
         </button>
       </form>
     </div>

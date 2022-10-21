@@ -3,16 +3,20 @@ import Image from "next/image";
 import React, { useState } from "react";
 //import Logo from "./Logo";
 import NavItem from "./NavItem";
+import Cookies from 'universal-cookie'
+const cookies = new Cookies()
 
-const MENU_LIST = [
-  { text: "Home", href: "/" },
-  { text: "My cryptos", href: "/manage" },
-  { text: "Profile", href: "/manage" },
-  { text: "News", href: "/news" },
-  { text: "Q&A", href: "/q&a" },
-  { text: "Login Admin", href: "/loginAdmin" },
-];
 const Navbar = () => {
+  const cookie = cookies.get('token')
+  const text = cookie ? 'Admin login' : 'Loggout'
+  const MENU_LIST = [
+    { text: "Home", href: "/" },
+    { text: "My cryptos", href: "/manage" },
+    { text: "Profile", href: "/manage" },
+    { text: "News", href: "/news" },
+    { text: "Q&A", href: cookie  ? '/admin/qa': '/client/qa' },
+    { text: text ,  href: "/loginAdmin"}
+  ];
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
 

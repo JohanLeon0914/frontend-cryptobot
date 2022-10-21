@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Layout } from '../../../components/public/Layout'
-import QAComponent from '../../../components/client/qa/qa'
+import QAComponent from '../../../components/admin/qa/ConsultQA'
 
 export async function getServerSideProps({ params }){
 

@@ -1,10 +1,23 @@
 import Bienvenido from '../components/public/home/Bienvenido'
 import { Layout } from '../components/public/Layout'
 
-function IndexPage() {
+
+export async function getServerSideProps(context) {
+    
+  const cookie = context.req.cookies
+
+  return {
+    props: {
+      cookie
+    }
+  }
+}
+
+
+function IndexPage({ cookie }) {
   return (
     <Layout>
-      <Bienvenido />
+      <Bienvenido cookie={cookie}/>
     </Layout>
   )
 }

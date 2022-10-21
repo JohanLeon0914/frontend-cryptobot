@@ -6,7 +6,7 @@ export default function QAComponent({ qa }) {
     <>
       <h1 className={styles.title}>Q&A</h1>
       {
-        qa.qa.map((QA, index) => (
+        qa.map((QA, index) => (
           <div key={index} className={styles.cover}>
             <p> {QA.question} </p>
             <hr className={styles.line} />
