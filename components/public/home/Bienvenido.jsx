@@ -14,15 +14,15 @@ function Bienvenido({ cookie }) {
 
   useEffect(() => {
     if (cookie.myTokenName) {
+      cookies.set('token', cookie.myTokenName, { path: '/' })
       setCookieState(true)
-    } else setCookieState(false)
-  }, [cookie])
+    } else {
+      cookies.remove('token', {path:'/'})
+      setCookieState(false)
+    }
+  }, [])
 
-  if (cookie.myTokenName) {
-    cookies.set('token', cookie.myTokenName, { path: '/' })
-  } else {
-    cookies.remove('token', {path:'/'})
-  }
+  
 
   return (
     <div>

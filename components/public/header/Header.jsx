@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 //import Logo from "./Logo";
 import NavItem from "./NavItem";
 import Cookies from 'universal-cookie'
@@ -8,14 +8,24 @@ const cookies = new Cookies()
 
 const Navbar = () => {
   const cookie = cookies.get('token')
-  const text = cookie ? 'Admin login' : 'Loggout'
+  const [cookieState, setCookieState] = useState(false)
+
+  useEffect(() => {
+    if (cookie) {
+        setCookieState(true)
+    }
+    else {
+        setCookieState(false)
+    }
+}, [cookie])
+  
   const MENU_LIST = [
     { text: "Home", href: "/" },
     { text: "My cryptos", href: "/manage" },
     { text: "Profile", href: "/manage" },
     { text: "News", href: "/news" },
-    { text: "Q&A", href: cookie  ? '/admin/qa': '/client/qa' },
-    { text: text ,  href: "/loginAdmin"}
+    { text: "Q&A", href: cookieState  ? '/admin/qa': '/client/qa' },
+    { text: cookieState ? 'Logout' : 'Admin login' ,  href: cookieState ? "/Logout" : '/loginAdmin' }
   ];
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
