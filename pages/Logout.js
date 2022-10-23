@@ -20,10 +20,9 @@ function Logout() {
          router.push('/') //lo redirijo al login
         }
      }
+     logout()
     return (
-        <button onClick={logout()}>
-        Loggout
-      </button>
+       <div></div>
     )
 }
 
