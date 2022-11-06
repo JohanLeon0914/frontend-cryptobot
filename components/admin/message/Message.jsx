@@ -2,13 +2,14 @@ import React from 'react'
 import styles from './Message.module.css'
 import { useRouter } from "next/router"
 import { useState } from "react"
+import axios from 'axios'
 
 function Message() {
 
   const [credentials, setCredentials] = useState({
     title: '',
-    description: '',
-    image: ''
+    body: '',
+    image_link: ''
   })
 
   const router = useRouter()
@@ -22,11 +23,22 @@ function Message() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // const response = await axios.post('/api/auth/login', credentials)
-    // if(response.status === 200) {
-    //   router.push('/dashboard')
-    // }
     console.log(credentials)
+    const url = "https://48d6-181-132-0-23.ngrok.io/messaging/message/diffuse"
+    const response = await axios.post('https://48d6-181-132-0-23.ngrok.io/messaging/message/diffuse', credentials)
+    if(response.status === 200) {
+      console.log("OMG FUNCIONO :O")
+    }
+    
+    // fetch(url, {
+    //   method: 'POST', // or 'PUT'
+    //   body: credentials, // data can be `string` or {object}!
+    //   headers:{
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).then(res => res.json())
+    // .catch(error => console.error('Error:', error))
+    // .then(response => console.log('Success:', response));
   }
 
   return (
@@ -40,21 +52,15 @@ function Message() {
                onChange={handleChange}
                 />
         <textarea className={styles.input} 
-                name='description'
-                placeholder='description' 
+                name='body'
+                placeholder='Body' 
                 onChange={handleChange}  
                 />
-                <div className={styles.fileContainer}>
-
-                   <label> Message image </label>  
-                    <input 
-                    type="file" 
-                    name='image'
-                    placeholder='image' 
-                    onChange={handleChange} 
-                    />
-                </div>
-        
+        <textarea className={styles.input} 
+                name='image_link'
+                placeholder='Image link' 
+                onChange={handleChange}  
+                />
 
         <button className={styles.loginBtn}>
             Send
