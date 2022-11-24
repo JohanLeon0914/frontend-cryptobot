@@ -6,20 +6,22 @@ import axios from 'axios'
 
 export async function getServerSideProps({ params }) {
 
-    const cryptos = [
-        { "name": "bitcoin", "selected": true },
-        { "name": "etherium", "selected": true },
-        { "name": "crypto", "selected": false }
-    ]
+    const {id} = params
 
     return {
         props: {
-            cryptos
+            id
         }
     }
 }
 
-function Index({ cryptos }) {
+function Index({ id }) {
+
+    const cryptos = [
+        { "name": "bitcoin", "selected": true },
+        { "name": "ethereum", "selected": true },
+        { "name": "cardano", "selected": false }
+    ]
 
     const [cryptoCheck, setCryptoCheck] = useState([{}])
     const [periodicity, setPeriodicity] = useState('')
@@ -43,25 +45,17 @@ function Index({ cryptos }) {
             cryptoList.push(c.name)
         })
         const data = {
-            telegram_id: 12345,
+            telegram_id: id,
             following_cryptos:cryptoList,
             query_schedule: '*/5 * * * *',
             currency_pair: currency
         }
         console.log(data)
-        const url = 'https://be79-181-132-10-224.ngrok.io/exchange/crypto/follow'
-        fetch(url, {
-            method: 'POST', // or 'PUT'
-            body: data, // data can be `string` or {object}!
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          }).then(res => res.json())
-          .catch(error => console.error('Error:', error))
-          .then(response => console.log('Success:', response));
-    // const response = await axios.post('https://8740-181-132-10-224.ngrok.io/exchange/crypto/follow', data)
-    // if (response.status === 200) {
-    // }
+        const url = 'https://94ac-181-132-2-224.ngrok.io/exchange/crypto/follow'
+    const response = await axios.post(url, data)
+    if (response.status === 200) {
+        console.log("se siguio")
+    }
     }
 
     const handleChangePeriodicity = (e) => {

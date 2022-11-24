@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import styles from './EditProfile.module.css'
+import axios from 'axios'
 
-function EditProfile() {
+function EditProfile({ id }) {
 
   const [credentials, setCredentials] = useState({
     username: '',
     lastName: '',
     firstName: '',
-    emailAddress: '',
+    email: '',
   })
 
     const handleChange = (e) => {
@@ -19,11 +20,17 @@ function EditProfile() {
   
     const handleSubmit = async (e) => {
       e.preventDefault()
-      // const response = await axios.post('/api/auth/login', credentials)
-      // if(response.status === 200) {
-      //   router.push('/dashboard')
-      // }
-      console.log(credentials)
+      const data = {
+        username: credentials.username,
+        lastname: credentials.lastName,
+        firstname: credentials.firstName,
+        email: credentials.email,
+        telegramID: id
+      }
+      const response = await axios.post('https://944c-181-132-2-224.ngrok.io/accounts/edit', data)
+      if(response.status === 200) {
+        alert('edit succefully')
+      }
     }  
 
   return (
