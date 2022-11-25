@@ -6,6 +6,6 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ['/']
-  }
+    unoptimized: true,
+  },
 }

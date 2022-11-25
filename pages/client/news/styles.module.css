@@ -3,7 +3,7 @@
 
 .cover {
     background-color: white;
-    width: 70%;
+    width: 75%;
     height: 50%;
     position: relative;
     border-radius: 1em;
@@ -17,6 +17,7 @@
     margin-bottom: 20px;
     padding: 16px 4px 16px 0;
     cursor: pointer;
+    text-align: center
 }
 
 .title {
