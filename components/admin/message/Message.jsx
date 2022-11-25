@@ -3,6 +3,7 @@ import styles from './Message.module.css'
 import { useRouter } from "next/router"
 import { useState } from "react"
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 function Message() {
 
@@ -24,10 +25,14 @@ function Message() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(credentials)
-    const url = "https://48d6-181-132-0-23.ngrok.io/messaging/message/diffuse"
-    const response = await axios.post('https://48d6-181-132-0-23.ngrok.io/messaging/message/diffuse', credentials)
+    const url = "https://28ad-181-132-0-23.ngrok.io/messaging/message/diffuse"
+    const response = await axios.post(url, credentials)
     if(response.status === 200) {
-      console.log("OMG FUNCIONO :O")
+      Swal.fire(
+        'Ok!',
+        'Message was send successfully!',
+        'success'
+      )
     }
     
     // fetch(url, {

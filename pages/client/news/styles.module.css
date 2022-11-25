@@ -16,4 +16,11 @@
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 16px 4px 16px 0;
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+    justify-content: center;
+    font-family: 'Titillium Web', sans-serif;
 }

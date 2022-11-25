@@ -21,10 +21,9 @@ const Navbar = () => {
   
   const MENU_LIST = [
     { text: "Home", href: "/" },
-    { text: "My cryptos", href: "/manage" },
-    { text: "Profile", href: "/manage" },
-    { text: "News", href: "/news" },
+    { text: "News", href: "/client/news" },
     { text: "Q&A", href: cookieState  ? '/admin/qa': '/client/qa' },
+    { text: 'Message' ,  href: cookieState ? "/admin/message" : '/' },
     { text: cookieState ? 'Logout' : 'Admin login' ,  href: cookieState ? "/Logout" : '/loginAdmin' }
   ];
   const [navActive, setNavActive] = useState(null);
