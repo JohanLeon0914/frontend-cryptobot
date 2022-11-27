@@ -50,8 +50,6 @@ function Index({ id }) {
     if (response.status === 200) {
       Swal.fire("Ok!", "Follow crypto prices save!", "success");
     }
-    // const url2 = 'https://069b-181-132-2-224.ngrok.io/exchange/news/notification'
-    // const response2 = await axios.post(url2, data)
   };
 
   const handleSubmit2 = async (e) => {
@@ -67,8 +65,7 @@ function Index({ id }) {
       currency_pair: currency,
     };
     console.log(data);
-    const url =
-      "https://069b-181-132-2-224.ngrok.io/exchange/news/notification";
+    const url = "https://069b-181-132-2-224.ngrok.io/news/follow";
     const response = await axios.post(url, data);
     if (response.status === 200) {
       Swal.fire("Ok!", "Follow crypto news save!", "success");
@@ -127,10 +124,11 @@ function Index({ id }) {
     <Layout>
       <div className={styles.cover}>
         <h1 className={styles.title}> Crypto manager </h1>
-        <h4> Follow your favorite cryptocurrency </h4>
+        <h4> Follow your favorites cryptocurrencys </h4>
+        <ul>
         {cryptos.map((crypto, index) => (
-          <div key={index}>
-            <label>
+          <li className={styles.list} key={index}>
+            <label htmlFor="crypto" className={styles.cryptoName}>
               <input
                 type="checkbox"
                 name={crypto.name}
@@ -157,10 +155,11 @@ function Index({ id }) {
               />
               {crypto.name}
             </label>
-            <br></br>
-            <br></br>
-          </div>
+            <br />
+            <br />
+          </li>
         ))}
+        </ul>
         <div>
           <h4> Check the notifications periodicity </h4>
 
@@ -238,10 +237,10 @@ function Index({ id }) {
             </div>
           </fieldset>
         </div>
-        <button className={styles.button} onClick={handleSubmit}>
+        <button className={styles.button} onClick={handleSubmit2}>
           Notify me news
         </button>
-        <button className={styles.button2} onClick={handleSubmit2}>
+        <button className={styles.button2} onClick={handleSubmit}>
           Notify me prices
         </button>
       </div>

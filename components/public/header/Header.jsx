@@ -23,7 +23,7 @@ const Navbar = () => {
     { text: "Home", href: "/" },
     { text: "News", href: "/client/news" },
     { text: "Q&A", href: cookieState  ? '/admin/qa': '/client/qa' },
-    { text: 'Message' ,  href: cookieState ? "/admin/message" : '/' },
+    { text: cookieState ? 'Message' : null ,  href: cookieState ? "/admin/message" : '/' },
     { text: cookieState ? 'Logout' : 'Admin login' ,  href: cookieState ? "/Logout" : '/loginAdmin' }
   ];
   const [navActive, setNavActive] = useState(null);

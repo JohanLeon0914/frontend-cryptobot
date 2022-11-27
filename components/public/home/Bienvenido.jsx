@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import styles from './Bienvenido.module.css'
 import Cookies from 'universal-cookie'
-import Header from '../header/Header'
 
 
 
@@ -36,9 +35,9 @@ function Bienvenido({ cookie }) {
         <h2>Welcome user</h2>
         <hr className={styles.linea} />
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi ea dignissimos ipsa
-          officia iste in maxime, at earum nisi id dolorem et repudiandae. Nesciunt quam voluptatibus
-          suscipit velit quasi quae!
+        Virtual assistant that will help manage relevant information and update prices and news about the crypto world,
+        Focused on any type of user with or without experience in this field.
+        Start learning more about the world of cryptocurrencies with CryptoBot.
         </p>
       </div>
     </div>

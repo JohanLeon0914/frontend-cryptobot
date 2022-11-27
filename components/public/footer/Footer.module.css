@@ -27,6 +27,11 @@
     margin-top: 20px;
 }
 
+.nerwork {
+    font-size: 18px;
+    position: absolute;
+}
+
 .colum2 {
     max-width: 600px;
 }
@@ -84,4 +89,6 @@
 
 
 }
+
+
 
