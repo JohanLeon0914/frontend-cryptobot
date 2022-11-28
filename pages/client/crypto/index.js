@@ -41,90 +41,33 @@ function Index({ id }) {
     const data = {
       telegram_id: id,
       following_cryptos: cryptoList,
-      query_schedule: periodicity,
+      // query_schedule: periodicity,
       currency_pair: currency,
     };
     console.log(data);
-    const url = "https://069b-181-132-2-224.ngrok.io/exchange/crypto/follow";
-    const response = await axios.post(url, data);
-    if (response.status === 200) {
-      Swal.fire("Ok!", "Follow crypto prices save!", "success");
-    }
-  };
-
-  const handleSubmit2 = async (e) => {
-    const cryptoList = [];
-
-    cryptoCheck.map((c) => {
-      if (c.selected) cryptoList.push(c.name);
-    });
-    const data = {
-      telegram_id: id,
-      following_cryptos: cryptoList,
-      query_schedule: periodicity,
-      currency_pair: currency,
-    };
-    console.log(data);
-    const url = "https://069b-181-132-2-224.ngrok.io/news/follow";
-    const response = await axios.post(url, data);
-    if (response.status === 200) {
-      Swal.fire("Ok!", "Follow crypto news save!", "success");
+    const url2 = process.env.NEWS + "/news/follow";
+    const response2 = await axios.post(url2, data);
+    // const url = process.env.EXCHANGE + "/exchange/crypto/follow";
+    // const response = await axios.post(url, data);
+    
+    if (response2.status === 200) {
+      Swal.fire("Ok!", "Configuration save succefully!", "success");
     }
   };
 
   const handleChangePeriodicity = (e) => {
-    console.log(e.target.value);
     setPeriodicity(e.target.value);
-    // const check1 = document.getElementById("check1");
-    // const check2 = document.getElementById("check2");
-    // const check3 = document.getElementById("check3");
-    // if (e.target.checked) {
-    //   switch (e.target.name) {
-    //     case "*/30 * * * *":
-    //       check2.disabled = true;
-    //       check3.disabled = true;
-    //       break;
-    //     case "* */1 * * *":
-    //       check1.disabled = true;
-    //       check3.disabled = true;
-    //       break;
-    //     case "* */2 * * *":
-    //       check1.disabled = true;
-    //       check2.disabled = true;
-    //       break;
-    //   }
-    // } else {
-    //   check1.disabled = false;
-    //   check2.disabled = false;
-    //   check3.disabled = false;
-    // }
   };
 
   const handleChangeCurrency = (e) => {
-    console.log(e.target.value);
     setCurrency(e.target.value);
-    // const check1 = document.getElementById("USD");
-    // const check3 = document.getElementById("EUR");
-    // if (e.target.checked) {
-    //   switch (e.target.name) {
-    //     case "USD":
-    //       check3.disabled = true;
-    //       break;
-    //     case "euro":
-    //       check1.disabled = true;
-    //       break;
-    //   }
-    // } else {
-    //   check1.disabled = false;
-    //   check3.disabled = false;
-    // }
   };
 
   return (
     <Layout>
       <div className={styles.cover}>
         <h1 className={styles.title}> Crypto manager </h1>
-        <h4> Follow your favorites cryptocurrencys </h4>
+        <h4> Follow your favorites cryptocurrencies </h4>
         <ul>
         {cryptos.map((crypto, index) => (
           <li className={styles.list} key={index}>
@@ -160,48 +103,8 @@ function Index({ id }) {
           </li>
         ))}
         </ul>
-        <div>
-          <h4> Check the notifications periodicity </h4>
-
-          <fieldset>
-            <legend>Select a periodicity:</legend>
-            <div>
-              <input
-                type="radio"
-                id="huey"
-                name="contact"
-                value="*/30 * * * *"
-                onChange={handleChangePeriodicity}
-                className={styles.inputPeriodicity}
-              ></input>
-              <label className={styles.textInput}> 30M </label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="huey"
-                name="contact"
-                value="* */1 * * *"
-                onChange={handleChangePeriodicity}
-                className={styles.inputPeriodicity}
-              ></input>
-              <label className={styles.textInput}> 1H </label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
-                id="huey"
-                name="contact"
-                value="* */2 * * *"
-                onChange={handleChangePeriodicity}
-                className={styles.inputPeriodicity}
-              ></input>
-              <label className={styles.textInput}> 2H </label>
-            </div>
-          </fieldset>
-        </div>
+        
+        {/* periodicity */}
 
         <div>
           <h4> Check your favorite currency </h4>
@@ -237,11 +140,8 @@ function Index({ id }) {
             </div>
           </fieldset>
         </div>
-        <button className={styles.button} onClick={handleSubmit2}>
-          Notify me news
-        </button>
-        <button className={styles.button2} onClick={handleSubmit}>
-          Notify me prices
+        <button className={styles.button} onClick={handleSubmit}>
+          Save
         </button>
       </div>
     </Layout>
