@@ -25,7 +25,7 @@ function Message() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(credentials)
-    const url = "https://28ad-181-132-0-23.ngrok.io/messaging/message/diffuse"
+    const url = process.env.MESSAGING + "/messaging/message/diffuse"
     const response = await axios.post(url, credentials)
     if(response.status === 200) {
       Swal.fire(

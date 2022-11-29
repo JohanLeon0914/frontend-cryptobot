@@ -21,7 +21,7 @@ function CreateQA() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await axios.post('http://localhost:9000/qa/create', credentials)
+    const response = await axios.post(process.env.QA + '/qa/create', credentials)
     if(response.status === 200) {
       router.push('/admin/qa')
     }

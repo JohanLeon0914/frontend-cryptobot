@@ -5,7 +5,7 @@ import QAComponent from '../../../components/client/qa/qa'
 
 export async function getServerSideProps({ params }){
 
-  const res =  await fetch('http://localhost:9000/qa/consult')
+  const res =  await fetch(process.env.QA + '/qa/consult')
   const qa = await res.json()
 
   return {

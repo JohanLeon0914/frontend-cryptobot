@@ -8,7 +8,7 @@ import { Layout } from '../../../components/public/Layout'
 export async function getServerSideProps(context) {
   
   const {id} = context.query
-  const res =  await fetch('https://69c9-181-132-2-224.ngrok.io/accounts/consult/' + id)
+  const res =  await fetch(process.env.ACCOUNTS + '/accounts/consult/' + id)
   const user = await res.json()
   return {
     props: {

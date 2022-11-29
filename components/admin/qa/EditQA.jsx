@@ -22,7 +22,7 @@ function EditQA({ id }) {
         e.preventDefault()
         const idQA = parseInt(id)
         console.log(credentials)
-        const response = await axios.put(`http://localhost:9000/qa/edit/${idQA}`, credentials)
+        const response = await axios.put(process.env.QA + `/qa/edit/${idQA}`, credentials)
         if(response.status === 200) {
           router.push('/admin/qa')
         }

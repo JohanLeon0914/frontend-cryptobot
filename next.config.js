@@ -8,7 +8,9 @@ module.exports = {
   env: {
     EXCHANGE: "https://e2ac-181-132-2-224.ngrok.io",
     NEWS: "https://e2ac-181-132-2-224.ngrok.io",
-    ACCOUNTS: "https://e2ac-181-132-2-224.ngrok.io"
+    ACCOUNTS: "https://e2ac-181-132-2-224.ngrok.io",
+    MESSAGING: "https://e2ac-181-132-2-224.ngrok.io",
+    QA: "https://e2ac-181-132-2-224.ngrok.io",
   },
   images: {
     unoptimized: true,
