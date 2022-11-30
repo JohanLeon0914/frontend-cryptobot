@@ -10,7 +10,7 @@ module.exports = {
     NEWS: "http://34.125.68.73:5000",
     ACCOUNTS: "http://34.125.117.244:5000",
     MESSAGING: "http://34.125.244.168:8080",
-    QA: "http://34.125.238.86:9000",
+    QA: "https://this-is-crypto-bot.online",
   },
   images: {
     unoptimized: true,
