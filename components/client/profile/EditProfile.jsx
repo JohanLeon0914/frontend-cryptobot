@@ -27,7 +27,7 @@ function EditProfile({ user }) {
         email: credentials.email,
         telegramID: user.telegramID
       }
-      const response = await axios.post('https://69c9-181-132-2-224.ngrok.io/accounts/edit', data)
+      const response = await axios.post(process.env.ACCOUNTS + '/accounts/edit', data)
       if(response.status === 200) {
         Swal.fire(
           'Ok!',
@@ -39,7 +39,7 @@ function EditProfile({ user }) {
 
     const deleteUser = async (e) => {
       console.log(user.telegramID)
-      const response = await axios.delete('https://69c9-181-132-2-224.ngrok.io/accounts/delete/' + user.telegramID)
+      const response = await axios.delete(process.env.ACCOUNTS + '/accounts/delete/' + user.telegramID)
       if (response.status === 200) {
         Swal.fire(
           'Ok!',
