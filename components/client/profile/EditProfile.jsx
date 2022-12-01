@@ -25,9 +25,13 @@ function EditProfile({ user }) {
         lastname: credentials.lastName,
         firstname: credentials.firstName,
         email: credentials.email,
-        telegramID: user.telegramID
+        telegramID: user.telegramID,
+        password: null,
       }
+      console.log(user)
+      console.log(data)
       const response = await axios.post(process.env.ACCOUNTS + '/accounts/edit', data)
+
       if(response.status === 200) {
         Swal.fire(
           'Ok!',
