@@ -6,10 +6,10 @@ const nextConfig = {
 
 module.exports = {
   env: {
-    EXCHANGE: "http://34.125.172.125:5000",
-    NEWS: "http://34.125.68.73:5000",
-    ACCOUNTS: "http://34.125.117.244:5000",
-    MESSAGING: "http://34.125.244.168:8080",
+    EXCHANGE: "https://this-is-crypto-bot.online",
+    NEWS: "https://this-is-crypto-bot.online",
+    ACCOUNTS: "https://this-is-crypto-bot.online",
+    MESSAGING: "https://this-is-crypto-bot.online",
     QA: "https://this-is-crypto-bot.online",
   },
   images: {
