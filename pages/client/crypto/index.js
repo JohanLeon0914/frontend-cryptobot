@@ -47,10 +47,10 @@ function Index({ id }) {
     console.log(data);
     const url2 = process.env.NEWS + "/news/follow";
     const response2 = await axios.post(url2, data);
-    // const url = process.env.EXCHANGE + "/exchange/crypto/follow";
-    // const response = await axios.post(url, data);
+    const url = process.env.EXCHANGE + "/exchange/crypto/follow";
+    const response = await axios.post(url, data);
     
-    if (response2.status === 200) {
+    if (response2.status === 200 && response.status === 200) {
       Swal.fire("Ok!", "Configuration save succefully!", "success");
     }
   };
