@@ -102,6 +102,74 @@ nav{
     transition: all 0.2s;
   } 
 }
+
+/* 
+.menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  position: relative;
+  width: 30px;
+}
+
+.menu-button:before,
+.menu-button:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 2px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transition: all 0.3s;
+  width: 30px;
+}
+
+.menu-button:before {
+  transform: translateY(-1px);
+}
+
+.menu-button:after {
+  transform: translateY(1px);
+}
+.menu-container {
+  background-color: #f1f1f1;
+}
+
+.menu {
+  display: none;
+  justify-content: center;
+  list-style: none;
+}
+
+.menu.menu-open {
+  display: flex;
+}
+
+.menu-link {
+  color: black;
+  font-size: 18px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.menu-button {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .menu {
+    display: flex;
+  }
+
+  .menu-button {
+    display: none;
+  }
+}
+ */
+
 /*   
   .nav__link:hover:before{
    width: 100%;
