@@ -1,6 +1,6 @@
+import Head from 'next/head'
 import Bienvenido from '../components/public/home/Bienvenido'
 import { Layout } from '../components/public/Layout'
-
 
 export async function getServerSideProps(context) {
     
@@ -12,7 +12,6 @@ export async function getServerSideProps(context) {
     }
   }
 }
-
 
 function IndexPage({ cookie }) {
   return (

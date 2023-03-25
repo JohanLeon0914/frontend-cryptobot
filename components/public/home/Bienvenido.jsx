@@ -4,8 +4,6 @@ import React, { useEffect, useState } from 'react'
 import styles from './Bienvenido.module.css'
 import Cookies from 'universal-cookie'
 
-
-
 function Bienvenido({ cookie }) {
 
   const cookies = new Cookies()
