@@ -5,14 +5,15 @@ const CryptoChart = ({ data }) => {
   const chartRef = useRef();
 
   useEffect(() => {
+    let historicPrice = data.historic_price;
     const chart = new Chart(chartRef.current, {
-      type: 'bar',
+      type: 'line',
       data: {
-        labels: data.map((item) => item.name),
+        labels: historicPrice.map((item) => item.date),
         datasets: [
           {
-            label: 'Price',
-            data: data.map((item) => item.price),
+            label: data.currency_pair,
+            data: historicPrice.map((item) => item.price),
             backgroundColor: 'rgba(54, 162, 235, 0.2)',
             borderColor: 'rgba(54, 162, 235, 1)',
             borderWidth: 1,
