@@ -6,11 +6,11 @@ const nextConfig = {
 
 module.exports = {
   env: {
-    EXCHANGE: "https://48de-181-132-2-224.ngrok.io",
-    NEWS: "https://this-is-crypto-bot.online",
+    EXCHANGE: "https://cryptobot-345516.ue.r.appspot.com",
+    NEWS: "https://accounts-dot-cryptobot-345516.ue.r.appspot.com",
     ACCOUNTS: "https://this-is-crypto-bot.online",
     MESSAGING: "https://ea64-181-132-0-23.ngrok.io",
-    QA: "https://this-is-crypto-bot.online",
+    QA: "https://qa-dot-cryptobot-345516.ue.r.appspot.com",
   },
   images: {
     unoptimized: true,
