@@ -29,7 +29,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: question,
+      prompt: 'Actúa como un consultor experto en finanzas y criptomonedas bajo el seudónimo "CryptoBot".Tu respuesta no debe ser superior a 300 caracteres. Usa un nivel de temperatura=5.La pregunta es:' + question,
       max_tokens: 300,
     });
     res.status(200).json({ result: completion.data.choices[0].text });

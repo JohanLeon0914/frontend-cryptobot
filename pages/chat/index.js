@@ -6,11 +6,13 @@ import Image from 'next/image'
 
 export default function Home() {
   const [questionInput, setQuestionInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
     try {
+      setLoading(true);
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
@@ -23,11 +25,12 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-
+      setLoading(false);
       setResult(data.result);
       setQuestionInput("");
     } catch(error) {
       // Consider implementing your own error handling logic here
+      setLoading(false);
       console.error(error);
       alert(error.message);
     }
@@ -53,11 +56,18 @@ export default function Home() {
           />
           <input type="submit" value="Generate response" />
         </form>
+        {loading ? (
         <div className={styles.result}>
-          Response
-          <hr />
-          {result}
+          cargando...
+          <div className="spinner"></div>
         </div>
+      ) : (
+        <div className={styles.result}>
+        Response
+        <hr />
+        {result}
+      </div>
+      )}
       </main>
     </Layout>
   );
