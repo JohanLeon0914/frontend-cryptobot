@@ -63,20 +63,26 @@ function EditProfile({ user }) {
                placeholder={user.firstname ? user.firstname : "First Name"}
                required
                onChange={handleChange}
-            />
+            > 
+              { user.firstname }
+            </input>
             <input  className={styles.input} 
                name='lastName'
                type='text'
                placeholder={user.lastname ? user.lastname : "Last Name"}
                onChange={handleChange}
-            />
+            >
+              { user.lastname }
+            </input>
             <input  className={styles.input} 
                name='email'
                type='email'
                placeholder={user.email ? user.email : "email"} 
                required
                onChange={handleChange}
-            />
+            >
+             { user.email }
+            </input>
             <button className={styles.button}> Edit </button>
       </form>
       <button className={styles.deleteButton} onClick={() => deleteUser()} > Delete profile </button>

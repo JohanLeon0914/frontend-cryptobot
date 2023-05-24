@@ -1,9 +1,24 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 import styles from './ConsultQA.module.css'
+import Swal from 'sweetalert2'
 
 export default function ConsultQA({ qa }) {
     const router = useRouter()
+    const confirmDelete = (qaDelet) => {
+        Swal.fire({
+            title: 'Do you want to delete the Q&A?',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            denyButtonText: `Don't Delete`,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                router.push(`/admin/qa/edit-qa/${qaDelet.id}`)
+            } else if (result.isDenied) {
+              Swal.fire('Q&A are not deleted')
+            }
+          })
+    }
     return (
         <div>
             <h1 className={styles.title}>Q&A</h1>
@@ -23,7 +38,7 @@ export default function ConsultQA({ qa }) {
                         </button>
                         <button
                             className={styles.deleteButton}
-                            onClick={() => router.push(`/admin/qa/delete-qa/${QA.id}`)}>
+                            onClick={() => confirmDelete(QA)}>
                             Delete
                         </button>
                     </div>

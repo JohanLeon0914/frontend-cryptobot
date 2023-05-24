@@ -1,8 +1,31 @@
+import { useEffect, useState } from 'react';
 import CryptoChart from '../../../components/client/chart/CryptoChart';
 import { Layout } from '../../../components/public/Layout';
 import axios from 'axios';
 
-const index = ({cryptoData}) => {
+const Index = ({cryptoData}) => {
+  const [analisisData, setAnalisisData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const urlAnalisis = process.env.QA + '/qa/ia/analizar-precios';
+        const response = await axios.post(urlAnalisis, cryptoData, {
+          transformResponse: [(data) => {
+            return JSON.parse(data);
+          }],
+        });
+        setAnalisisData(response.data);
+        console.log(response.data)
+        console.log(analisisData)
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [cryptoData]);
+
   return (
     <Layout>
       <h1>Cryptocurrency price chart: { cryptoData.name } </h1>
@@ -12,73 +35,35 @@ const index = ({cryptoData}) => {
 };
 
 export async function getServerSideProps(context) {
-  const url = "https://604d-2803-1800-1231-2c99-2861-1112-70a9-758d.ngrok.io/crypto/price"
+  const { cryptoName } = context.query;
+  const url = "https://cryptobot-345516.ue.r.appspot.com/exchange/crypto/price"
+  
   const crypto = {
-    crypto: "bitcoin",
+    crypto: cryptoName,
     dateRange: 7
   }
-  // const response = await axios.post(url, crypto, {
-  //   transformResponse: [(data) => {
-  //     return JSON.parse(data);
-  //   }],
-  // });
-  const cryptoData = {
-    name: "bitcoin",
-    currency_pair: "usd",
-    historic_price: [
-      {
-      date: "2022-02-23",
-      price: 2500
+  try {
+    const response = await axios.post(url, crypto, {
+      transformResponse: [(data) => {
+        return JSON.parse(data);
+      }],
+    });
+
+  
+    return {
+      props: {
+        cryptoData: response.data, // Solo devuelve la propiedad "data" de la respuesta
       },
-      {
-        date: "2022-02-23",
-        price: 2800
-        },
-        {
-          date: "2022-02-23",
-          price: 2220
-          },
-          {
-            date: "2022-02-23",
-            price: 2200
-            },
-            {
-              date: "2022-02-23",
-              price: 2250
-              },
-              {
-                date: "2022-02-23",
-                price: 2222
-                },
-                {
-                  date: "2022-02-23",
-                  price: 2220
-                  },
-
-                  {
-                    date: "2022-02-23",
-                    price: 2100
-                    },
-                    {
-                      date: "2022-02-23",
-                      price: 2750
-                      },
-                      {
-                        date: "2022-02-23",
-                        price: 2200
-                        },
-                        {
-                          date: "2022-02-23",
-                          price: 2700
-                          },
-  ]
-  };
-
-  return {
-    props: {
-      cryptoData,
-    },
-  };
+    };
+  } catch (error) {
+    // Manejar el error de manera apropiada
+    console.error(error);
+    return {
+      props: {
+        cryptoData: null, // Devuelve un valor nulo en caso de error
+      },
+    };
+  }
 }
 
-export default index;
+export default Index;

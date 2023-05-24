@@ -9,7 +9,7 @@ function Footer() {
         <div className={styles.containerFooterAll}>
           <div className={styles.containerBody}>
             <div className={styles.colum1}>
-              <h2>CryptoBot - 2022</h2>
+              <h2>CryptoBot - 2023</h2>
               <p>Follow our social networks to keep informed of new updates.</p>
             </div>
             <div className={styles.colum2}>
@@ -51,7 +51,7 @@ function Footer() {
         <div className={styles.containerFooter}>
           <div className={styles.footer}>
             <div className={styles.copi}>
-              ©2022 CryptoBot, virtual assistant. All rights reserved.
+              ©2023 CryptoBot, virtual assistant. All rights reserved.
             </div>
           </div>
         </div>
