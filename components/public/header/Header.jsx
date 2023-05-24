@@ -22,6 +22,7 @@ const Navbar = () => {
   const MENU_LIST = [
     { text: "Home", href: "/" },
     { text: "News", href: "/client/news" },
+    { text: "ChatBot", href: "/chat" },
     { text: "Q&A", href: cookieState  ? '/admin/qa': '/client/qa' },
     { text: cookieState ? 'Message' : null ,  href: cookieState ? "/admin/message" : '/' },
     { text: cookieState ? 'Logout' : 'Admin login' ,  href: cookieState ? "/Logout" : '/loginAdmin' }
