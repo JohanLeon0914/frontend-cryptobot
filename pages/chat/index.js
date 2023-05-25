@@ -8,12 +8,13 @@ export default function Home() {
   const [questionInput, setQuestionInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState();
-  console.log(process.env.OPENAI_API_KEY)
+  const key = process.env.OPENAI_API_KEY;
 
   async function onSubmit(event) {
     event.preventDefault();
     try {
       setLoading(true);
+      console.log(key)
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
